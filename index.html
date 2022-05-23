@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <title>ecopolis_calc</title>
+</head>
+
+<body>
+  <script>
+    var custom_types = [
+                      { name:'Монитор LCD',
+            code:'monitor-lcd',
+                            kbt: false,
+                            weight: '20',
+            price_sell: '15',
+            price_util: '90'},
+                      { name:'Телевизор,  LCD',
+            code:'tv-lcd',
+                            kbt: false,
+                            weight: '3',
+            price_sell: '100',
+            price_util: '300'},
+                      { name:'Телевизор, монитор ЭЛТ',
+            code:'monitor-elt',
+                            kbt: false,
+                            weight: '30',
+            price_sell: '150',
+            price_util: '450'},
+                      { name:'Принтер',
+            code:'printer',
+                            kbt: false,
+                            weight: '4',
+            price_sell: '20',
+            price_util: '75'},
+                      { name:'Сканер',
+            code:'scanner',
+                            kbt: false,
+                            weight: '5',
+            price_sell: '25',
+            price_util: '75'},
+                      { name:'МФУ',
+            code:'mfu',
+                            kbt: false,
+                            weight: '55',
+            price_sell: '275',
+            price_util: '825'},
+                      { name:'Плоттер',
+            code:'plotter',
+                            kbt: false,
+                            weight: '55',
+            price_sell: '275',
+            price_util: '825'},
+                      { name:'Компьютер',
+            code:'computer',
+                            kbt: false,
+                            weight: '6',
+            price_sell: '16.67',
+            price_util: '100'},
+                      { name:'Ноутбук',
+            code:'notebook',
+                            kbt: false,
+                            weight: '2',
+            price_sell: '15',
+            price_util: '90'},
+                      { name:'Телефон',
+            code:'phone',
+                            kbt: false,
+                            weight: '1',
+            price_sell: '15',
+            price_util: '90'},
+                      { name:'Факс',
+            code:'fax',
+                            kbt: false,
+                            weight: '1',
+            price_sell: '90',
+            price_util: '15'},
+                      { name:'Док-станция',
+            code:'doc-station',
+                            kbt: false,
+                            weight: '1',
+            price_sell: '15',
+            price_util: '90'},
+                      { name:'Серверное оборудование',
+            code:'server',
+                            kbt: false,
+                            weight: '50',
+            price_sell: '250',
+            price_util: '750'},
+                      { name:'Микроволновая печь',
+            code:'microvolovaya-pech',
+                            kbt: false,
+                            weight: '1.2',
+            price_sell: '6',
+            price_util: '18'},
+                      { name:'Кофемашина',
+            code:'coffemashina',
+                            kbt: false,
+                            weight: '10',
+            price_sell: '50',
+            price_util: '150'},
+                      { name:'Чайник',
+            code:'chaynik',
+                            kbt: false,
+                            weight: '1.2',
+            price_sell: '6',
+            price_util: '18'},
+                      { name:'Куллер',
+            code:'kuller',
+                            kbt: false,
+                            weight: '10',
+            price_sell: '50',
+            price_util: '150'},
+                      { name:'Холодильник',
+            code:'holodilnik',
+                            kbt: true,
+                            weight: '55',
+            price_sell: '275',
+            price_util: '825'},
+                      { name:'Газовая плита',
+            code:'gazovaya-plita',
+                            kbt: false,
+                            weight: '55',
+            price_sell: '275',
+            price_util: '825'},
+                      { name:'Мини-холодильник',
+            code:'mini-holodilnik',
+                            kbt: false,
+                            weight: '15',
+            price_sell: '75',
+            price_util: '225'},
+                      { name:'Бойлер',
+            code:'boyler',
+                            kbt: false,
+                            weight: '55',
+            price_sell: '275',
+            price_util: '825'},
+                      { name:'Кондиционер',
+            code:'kondicioner',
+                            kbt: false,
+                            weight: '20',
+            price_sell: '100',
+            price_util: '300'},
+                      { name:'Стиральная машина',
+            code:'stiralnaya-mashia',
+                            kbt: true,
+                            weight: '55',
+            price_sell: '275',
+            price_util: '825'},
+                      { name:'Посудомоечная машина',
+            code:'posudomoechnaya-mashina',
+                            kbt: true,
+                            weight: '40',
+            price_sell: '200',
+            price_util: '600'},
+                      { name:'Духовой шкаф',
+            code:'duhovoy-shkaf',
+                            kbt: false,
+                            weight: '40',
+            price_sell: '200',
+            price_util: '600'},
+                      { name:'Картридж',
+            code:'kartridj',
+                            kbt: false,
+                            weight: '1',
+            price_sell: '10',
+            price_util: '60'},
+                      { name:'Иное',
+            code:'custom',
+                            kbt: false,
+                            weight: '0.2',
+            price_sell: '1',
+            price_util: '3'},
+                ];
+</script>
+  <div id="app"></div>
+
+  <div class="detail_text">
+    <h2>ЗАКАЖИТЕ УСЛУГУ ПО ВЫВОЗУ ВАШЕЙ ТЕХНИКИ ПРЯМО ИЗ ДОМА</h2>
+<p>Вы можете освободить квартиру от ненужной бытовой техники и электроники, гарантировано направив её на экологичную переработку.</p>
+<p>Осуществляется вывоз как крупной бытовой техники, так и компьютерной техники, печатных устройств, бытовой электроники и мелкой бытовой техники.</p>
+<p>На утилизацию <u>не принимаются</u>:</p>
+<ul>
+<li>Ртутные лампы</li>
+<li>Батареи и аккумуляторы</li>
+<li>Картриджи вне печатной техники</li>
+</ul>
+<p>Дополнительные условия:</p>
+<ul>
+<li>Газовые плиты для вывоза должны быть демонтированы. Демонтаж другой крупной бытовой техники может быть осуществлён за дополнительную плату</li>
+<li>При отсутствии лифта стоимость транспортировки техники по лестнице –&nbsp;150 руб. за этаж в пределах 3 этажей. При этажности свыше 4 этажей – 500 руб. за услугу в целом</li>
+<li>При удаленности точки парковки грузового транспорта от подъезда свыше 50 м – доплата за транспортировку 500 руб.</li>
+<li>В случае отсутствия бесплатной стоянки возле вашего дома, стоимость стоянки сервисного автомобиля оплачивается отдельно</li>
+</ul>
+<p>После оформления заявки с вами свяжется оператор.</p>
+<h2>ВЫ МОЖЕТЕ СДАТЬ ТЕХНИКУ САМОСТОЯТЕЛЬНО И ЗАРАБОТАТЬ</h2>
+<p>Пункт приема расположен по адресу: Шоссейный пр-д, 10, стр.1.</p>
+<p>График работы:</p>
+<p>Понедельник–пятница: с 8 до 20</p>
+<p>Суббота: с 9 до 18</p>
+<p>Воскресенье – выходной</p>    </div>
+
+  <script src="/dist/calculator.js"></script>
+</body>
+
+</html>
